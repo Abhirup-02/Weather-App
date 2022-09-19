@@ -10,12 +10,6 @@ searchbox.addEventListener('keypress', (event) => {
     }
 })
 
-//function setQuery(evt){
-  //  if(evt.keyCode==13){
-    //    getResults(searchbox.value)
-    //}
-//}
-
 function getResults(query){
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
     .then(weather => {
