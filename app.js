@@ -4,13 +4,17 @@ const api = {
 }
 
 const searchbox = document.querySelector('.search-box')
-searchbox.addEventListener('keypress', setQuery)
-
-function setQuery(evt){
-    if(evt.keyCode==13){
+searchbox.addEventListener('keypress', (event) => {
+    if(event.keyCode==13){
         getResults(searchbox.value)
     }
-}
+})
+
+//function setQuery(evt){
+  //  if(evt.keyCode==13){
+    //    getResults(searchbox.value)
+    //}
+//}
 
 function getResults(query){
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
