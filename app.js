@@ -20,7 +20,7 @@ function getResults(query) {
 function displayResults(weather) {
     console.log(weather)
     let city = document.querySelector('.location .city')
-    city.innerText = `${weather.name},${weather.sys.country}`
+    city.innerText = `${weather.name}, ${weather.sys.country}`
 
     let now = new Date()
     let date = document.querySelector('.location .date')
@@ -30,7 +30,33 @@ function displayResults(weather) {
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`
 
     let weather_el = document.querySelector('.current .weather')
-    weather_el.innerText = weather.weather[0].main
+
+    //Give background image based on weather type
+    switch (weather.weather[0].main) {
+        case "Haze":
+            weather_el.innerText = weather.weather[0].main
+            document.body.style.backgroundImage = "url('./haze.jpg')"
+            document.body.style.backgroundSize = '100% 100%'
+            break
+        
+        case "Rain":
+            weather_el.innerText = weather.weather[0].main
+            document.body.style.backgroundImage = "url('./rain.jpg')"
+            document.body.style.backgroundSize = '100% 100%'
+            break
+        
+        case "Clouds":
+            weather_el.innerText = weather.weather[0].main
+            document.body.style.backgroundImage = "url('./clouds.jpg')"
+            document.body.style.backgroundSize = '100% 100%'
+            break
+        
+        default:
+            weather_el.innerText = weather.weather[0].main
+            document.body.style.backgroundImage = "url('./bg.jpg')"
+            document.body.style.backgroundSize = 'cover'
+
+    }
 
     let hilow = document.querySelector('.hi-low')
     hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`
