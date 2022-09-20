@@ -34,24 +34,22 @@ function displayResults(weather) {
 
 
     //Give background image based on weather type
+    document.body.style.backgroundSize = '100% 100%'
     switch (weather.weather[0].main) {
         case "Haze":
             weather_el.innerText = weather.weather[0].main
             document.body.style.backgroundImage = "url('./haze.jpg')"
-            document.body.style.backgroundSize = '100% 100%'
             break
         
         case "Drizzle":
         case "Rain":
             weather_el.innerText = weather.weather[0].main
             document.body.style.backgroundImage = "url('./rain.jpg')"
-            document.body.style.backgroundSize = '100% 100%'
             break
         
         case "Clouds":
             weather_el.innerText = weather.weather[0].main
             document.body.style.backgroundImage = "url('./clouds.jpg')"
-            document.body.style.backgroundSize = '100% 100%'
             break
         
         case "Clear":
