@@ -1,6 +1,6 @@
 let city = document.querySelector('.location .city')
-let temp = document.querySelector('.current .temp')
 let date = document.querySelector('.location .date')
+let temp = document.querySelector('.current .temp')
 let weather_el = document.querySelector('.current .weather')
 let hilow = document.querySelector('.hi-low')
 
@@ -60,17 +60,19 @@ function displayResults(weather) {
             break
         
         default:
-            weather_el.innerText = weather.weather[0].main
+            weather_el.innerText = `${weather.weather[0].main}`
             document.body.style.backgroundImage = "url('./Images/bg.jpg')"
             document.body.style.backgroundSize = 'cover'
     }
     if (weather.weather[0].main != 'Clear') {
         document.body.style.backgroundPositionY = null
     }
-
-
+    
     hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`
+
+    document.querySelector('#w-icon').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
 }
+
 
 function dateBuilder(d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]

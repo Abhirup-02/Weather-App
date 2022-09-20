@@ -88,6 +88,13 @@ main {
 
 }
 
+img{
+    z-index: 100;
+    background: transparent;
+    mix-blend-mode: blend;
+    transition: 2s;
+}
+
 .current .hi-low {
     color: #fff;
     font-size: 24px;
