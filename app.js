@@ -38,30 +38,30 @@ function displayResults(weather) {
     switch (weather.weather[0].main) {
         case "Haze":
             weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./haze.jpg')"
+            document.body.style.backgroundImage = "url('./Images/haze.jpg')"
             break
         
         case "Drizzle":
         case "Rain":
             weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./rain.jpg')"
+            document.body.style.backgroundImage = "url('./Images/rain.jpg')"
             break
         
         case "Clouds":
             weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./clouds.jpg')"
+            document.body.style.backgroundImage = "url('./Images/clouds.jpg')"
             break
         
         case "Clear":
             weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./clear.jpg')"
+            document.body.style.backgroundImage = "url('./Images/clear.jpg')"
             document.body.style.backgroundPositionY = '20%'
             document.body.style.backgroundSize = null
             break
         
         default:
             weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./bg.jpg')"
+            document.body.style.backgroundImage = "url('./Images/bg.jpg')"
             document.body.style.backgroundSize = 'cover'
     }
     if (weather.weather[0].main != 'Clear') {

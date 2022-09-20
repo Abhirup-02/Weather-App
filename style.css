@@ -6,9 +6,9 @@
 
 body {
     font-family: 'montserrat', sans-serif;
-    background-image: url(./bg.jpg);
+    background-image: url(./Images/bg.jpg);
     background-size: cover;
-    transition: .7s;
+    transition: .8s;
 }
 
 .app-wrap {
