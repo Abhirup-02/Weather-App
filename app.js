@@ -1,3 +1,9 @@
+let city = document.querySelector('.location .city')
+let temp = document.querySelector('.current .temp')
+let date = document.querySelector('.location .date')
+let weather_el = document.querySelector('.current .weather')
+let hilow = document.querySelector('.hi-low')
+
 const api = {
     key: "150740df546d39e577ffd82527b393a8",
     base: "https://api.openweathermap.org/data/2.5/"
@@ -19,17 +25,13 @@ function getResults(query) {
 
 function displayResults(weather) {
     console.log(weather)
-    let city = document.querySelector('.location .city')
     city.innerText = `${weather.name}, ${weather.sys.country}`
 
     let now = new Date()
-    let date = document.querySelector('.location .date')
     date.innerText = dateBuilder(now)
 
-    let temp = document.querySelector('.current .temp')
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°C</span>`
 
-    let weather_el = document.querySelector('.current .weather')
 
     //Give background image based on weather type
     switch (weather.weather[0].main) {
@@ -39,6 +41,7 @@ function displayResults(weather) {
             document.body.style.backgroundSize = '100% 100%'
             break
         
+        case "Drizzle":
         case "Rain":
             weather_el.innerText = weather.weather[0].main
             document.body.style.backgroundImage = "url('./rain.jpg')"
@@ -51,14 +54,23 @@ function displayResults(weather) {
             document.body.style.backgroundSize = '100% 100%'
             break
         
+        case "Clear":
+            weather_el.innerText = weather.weather[0].main
+            document.body.style.backgroundImage = "url('./clear.jpg')"
+            document.body.style.backgroundPositionY = '20%'
+            document.body.style.backgroundSize = null
+            break
+        
         default:
             weather_el.innerText = weather.weather[0].main
             document.body.style.backgroundImage = "url('./bg.jpg')"
             document.body.style.backgroundSize = 'cover'
-
+    }
+    if (weather.weather[0].main != 'Clear') {
+        document.body.style.backgroundPositionY = null
     }
 
-    let hilow = document.querySelector('.hi-low')
+
     hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`
 }
 

@@ -8,8 +8,7 @@ body {
     font-family: 'montserrat', sans-serif;
     background-image: url(./bg.jpg);
     background-size: cover;
-    background-position: top center;
-    transition: .70s;
+    transition: .7s;
 }
 
 .app-wrap {
