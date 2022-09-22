@@ -1,3 +1,4 @@
+let app_wrap = document.querySelector('.app-wrap')
 let city = document.querySelector('.location .city')
 let date = document.querySelector('.location .date')
 let temp = document.querySelector('.current .temp')
@@ -37,40 +38,54 @@ function displayResults(weather) {
     document.body.style.backgroundSize = '100% 100%'
     switch (weather.weather[0].main) {
         case "Haze":
-            weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./Images/haze.jpg')"
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/haze.webp')"
             break
         
         case "Drizzle":
         case "Rain":
-            weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./Images/rain.jpg')"
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/rain.webp')"
             break
         
         case "Clouds":
-            weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./Images/clouds.jpg')"
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/clouds.webp')"
+            break
+        
+        case "Mist":
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/mist.webp')"
+            break
+
+        case "Fog":
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/fog.webp')"
             break
         
         case "Clear":
-            weather_el.innerText = weather.weather[0].main
-            document.body.style.backgroundImage = "url('./Images/clear.jpg')"
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/clear.webp')"
             document.body.style.backgroundPositionY = '20%'
             document.body.style.backgroundSize = null
             break
         
         default:
-            weather_el.innerText = `${weather.weather[0].main}`
-            document.body.style.backgroundImage = "url('./Images/bg.jpg')"
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/bg.webp')"
             document.body.style.backgroundSize = 'cover'
     }
     if (weather.weather[0].main != 'Clear') {
         document.body.style.backgroundPositionY = null
     }
     
-    hilow.innerText = `${Math.round(weather.main.temp_min)}°C / ${Math.round(weather.main.temp_max)}°C`
+    hilow.innerText = `↿ ${Math.round(weather.main.temp_max)}°C\u00A0\u00A0\u00A0⇃ ${Math.round(weather.main.temp_min)}°C`
 
     document.querySelector('#w-icon').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+
+    // Create divs for another items
+    // app_wrap.innerHTML = 
+
 }
 
 
