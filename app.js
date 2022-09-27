@@ -4,6 +4,11 @@ let date = document.querySelector('.location .date')
 let temp = document.querySelector('.current .temp')
 let weather_el = document.querySelector('.current .weather')
 let hilow = document.querySelector('.hi-low')
+let extra_info = document.querySelector('.extra-info')
+let feels_like = document.querySelector('.feels-like')
+let humidity = document.querySelector('.humidity')
+let pressure = document.querySelector('.pressure')
+let wind_speed = document.querySelector('.wind-speed')
 
 const api = {
     key: "150740df546d39e577ffd82527b393a8",
@@ -69,6 +74,11 @@ function displayResults(weather) {
             document.body.style.backgroundPositionY = '20%'
             document.body.style.backgroundSize = null
             break
+
+        case "Thunderstorm":
+            weather_el.innerText = weather.weather[0].description
+            document.body.style.backgroundImage = "url('./Images/thunderstorm.webp')"
+            break
         
         default:
             weather_el.innerText = weather.weather[0].description
@@ -83,8 +93,12 @@ function displayResults(weather) {
 
     document.querySelector('#w-icon').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
 
-    // Create divs for another items
-    // app_wrap.innerHTML = 
+    //Change opacity of extra-info div when a fetch is made 
+    extra_info.style.opacity = '1'
+    feels_like.innerHTML = `Feels like ${Math.round(weather.main.feels_like)}°C`
+    humidity.innerHTML = `Humidity ${weather.main.humidity}%`
+    pressure.innerHTML = `Pressure ${(weather.main.pressure * 0.00750062).toFixed(1)}mm Hg`
+    wind_speed.innerHTML = `Wind ${Math.round(weather.wind.speed*18/5)} km/h`
 
 }
 
