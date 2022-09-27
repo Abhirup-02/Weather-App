@@ -95,8 +95,8 @@ function displayResults(weather) {
 
     //Change opacity of extra-info div when a fetch is made 
     extra_info.style.opacity = '1'
-    feels_like.innerHTML = `Feels like ${Math.round(weather.main.feels_like)}°C`
-    humidity.innerHTML = `Humidity ${weather.main.humidity}%`
+    feels_like.innerHTML = `Feels like\u00A0\u00A0\u00A0${Math.round(weather.main.feels_like)}°C`
+    humidity.innerHTML = `Humidity\u00A0\u00A0\u00A0${weather.main.humidity}%`
     pressure.innerHTML = `Pressure ${(weather.main.pressure * 0.00750062).toFixed(1)}mm Hg`
     wind_speed.innerHTML = `Wind ${Math.round(weather.wind.speed*18/5)} km/h`
 
