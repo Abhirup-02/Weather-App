@@ -41,7 +41,7 @@ function displayResults(weather) {
         let text = new Date().toLocaleString("en-US", {
             timeZone: `${timezone.lookup(weather.sys.country)}`,
             timeStyle: "short",
-            hourCycle: "h24"
+            hourCycle: "h23"
         })
         curr_time.textContent = text
         time.style.opacity = '1'
