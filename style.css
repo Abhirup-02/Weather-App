@@ -9,6 +9,12 @@ body {
     background-image: url(./Images/bg.webp);
     background-size: cover;
     transition: .7s;
+    cursor: default;
+}
+
+::selection {
+    color: none;
+    background: none;
 }
 
 .app-wrap {
@@ -118,4 +124,22 @@ img {
     line-height: 30px;
     opacity: 0;
     z-index: 5;
+}
+
+.time {
+    position: absolute;
+    color: white;
+    top: 2vh;
+    left: 1vw;
+    opacity: 0;
+    transition: opacity 100ms;
+}
+
+p {
+    font-size: 4.2rem;
+    letter-spacing: 5px;
+}
+
+p::first-letter {
+    color: rgba(225, 43, 43, 0.951);
 }
