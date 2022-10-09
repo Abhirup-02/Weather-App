@@ -30,10 +30,9 @@ import TZjson from './tz.json' assert{type:'json'}
 timezone.data = TZjson
 
 timezone.lookup = function (country, region) {
-    return this.data[[country, region].join('_')] || this.data[[country, ''].join('_')];
-};
+    return this.data[[country, region].join('_')] || this.data[[country, ''].join('_')]
+}
 
-// console.log(timezone.lookup('ID','02'))
 function getResults(query) {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then(weather => {
@@ -43,7 +42,7 @@ function getResults(query) {
 
 let currentTime
 function displayResults(weather) {
-    console.log(timezone.lookup(weather.sys.country))
+    // console.log(timezone.lookup(weather.sys.country))
     console.log(weather)
 
     // Time Builer
