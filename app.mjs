@@ -23,7 +23,17 @@ searchbox.addEventListener('keypress', (event) => {
         if (currentTime) clearInterval(currentTime)
     }
 })
-import timezone from './node_modules/timezone-country-region/lib/timezone.mjs'
+
+let timezone = {}
+
+import TZjson from './tz.json' assert{type:'json'}
+timezone.data = TZjson
+
+timezone.lookup = function (country, region) {
+    return this.data[[country, region].join('_')] || this.data[[country, ''].join('_')];
+};
+
+// console.log(timezone.lookup('ID','02'))
 function getResults(query) {
     fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
         .then(weather => {
