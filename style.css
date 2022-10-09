@@ -132,7 +132,7 @@ img {
     top: 2vh;
     left: 1vw;
     opacity: 0;
-    transition: opacity 100ms;
+    transition: opacity 100ms ease-in;
 }
 
 p {

@@ -42,7 +42,7 @@ function getResults(query) {
 
 let currentTime
 function displayResults(weather) {
-    // console.log(timezone.lookup(weather.sys.country))
+    console.log('Timezone: ' + timezone.lookup(weather.sys.country))
     console.log(weather)
 
     // Time Builer
