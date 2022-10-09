@@ -1,11 +1,7 @@
-// 'use strict';
+var timezone = {}
 
-var timezone = {};
-
-// init data
-import MYjson from '../tz.json' assert{type:'json'};
+import MYjson from '../tz.json' assert{type:'json'}
 timezone.data = MYjson
-// module.exports = timezone
 export default timezone;
 
 timezone.lookup = function (country, region) {
