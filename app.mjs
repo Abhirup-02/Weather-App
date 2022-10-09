@@ -122,7 +122,7 @@ function displayResults(weather) {
 
     hilow.innerText = `↿ ${Math.round(weather.main.temp_max)}°C\u00A0\u00A0\u00A0⇃ ${Math.round(weather.main.temp_min)}°C`
 
-    document.querySelector('#w-icon').src = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+    document.querySelector('#w-icon').src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
 
     //Change opacity of extra-info div when a fetch is made 
     extra_info.style.opacity = '1'
