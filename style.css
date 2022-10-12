@@ -140,6 +140,7 @@ p {
     font-size: 65px;
     font-weight: 300;
     letter-spacing: 5px;
+    transition: 500ms;
 }
 
 p::first-letter {
