@@ -10,6 +10,7 @@ let pressure = document.querySelector('.pressure')
 let wind_speed = document.querySelector('.wind-speed')
 let time = document.querySelector('.time')
 let curr_time = document.querySelector('p')
+let label = document.querySelector('label')
 
 const api = {
     key: "150740df546d39e577ffd82527b393a8",
@@ -42,6 +43,8 @@ function getResults(query) {
 
 let currentTime
 function displayResults(weather) {
+    label.style.opacity = 1
+
     console.log('Timezone: ' + timezone.lookup(weather.sys.country))
     console.log(weather)
 

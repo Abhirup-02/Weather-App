@@ -113,7 +113,7 @@ img {
     position: absolute;
     top: 3vh;
     right: 1vw;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 108%;
     background-color: rgba(163, 155, 155, 0.475);
     display: grid;
@@ -124,14 +124,14 @@ img {
     border-radius: 20px;
     line-height: 30px;
     opacity: 0;
-    z-index: 5;
+    z-index: 50;
 }
 
 .time {
     position: absolute;
     color: white;
     top: 2vh;
-    left: 1vw;
+    left: 1.5vw;
     opacity: 0;
     transition: opacity 100ms ease-in;
 }
@@ -145,4 +145,37 @@ p {
 
 p::first-letter {
     color: rgba(225, 43, 43, 0.951);
+}
+
+#toggler, label{
+    display: none;
+}
+
+@media screen and (max-width:750px) {
+    .extra-info {
+        display: none;
+    }
+    label{
+        display: inline-flex;
+        align-items: center;
+        position: absolute;
+        top: 3vh;
+        right: 3vw;
+        z-index: 10;
+        opacity: 0;
+        cursor: pointer;
+    }
+    #toggler:checked ~ .extra-info{
+        display: grid;
+        position: absolute;
+        width: 50vw;
+        height: 30vh;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        overflow: hidden;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        color: #5bc936;
+    }
 }
